@@ -1,50 +1,34 @@
-// قوائم للشخصيات والقصص
-let characters = ['شخصية 1: البطل الشجاع', 'شخصية 2: الشرير الذكي'];
-let stories = ['قصة 1: مغامرة في المدينة', 'قصة 2: سر القلعة'];
+// التنقل بين التبويبات
+const tabs = document.querySelectorAll('.tab');
+const sections = document.querySelectorAll('.tab-content');
 
-// تحديث القوائم عند التحميل
-document.addEventListener('DOMContentLoaded', () => {
-    updateCharacterList();
-    updateStoryList();
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    const target = tab.dataset.tab;
+    sections.forEach(section => {
+      if(section.id === target) {
+        section.classList.add('active');
+      } else {
+        section.classList.remove('active');
+      }
+    });
+  });
 });
 
-// دالة إضافة شخصية
-document.getElementById('add-character').addEventListener('click', () => {
-    const name = prompt('أدخل اسم الشخصية:');
-    if (name) {
-        characters.push(name);
-        updateCharacterList();
+// الأكوردين (لوحة القوانين القابلة للطي)
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+accordionHeaders.forEach(header => {
+  header.addEventListener('click', () => {
+    const item = header.parentElement;
+    if(item.classList.contains('active')) {
+      item.classList.remove('active');
+    } else {
+      accordionHeaders.forEach(h => h.parentElement.classList.remove('active'));
+      item.classList.add('active');
     }
-});
-
-// دالة إضافة قصة
-document.getElementById('add-story').addEventListener('click', () => {
-    const title = prompt('أدخل عنوان القصة:');
-    if (title) {
-        stories.push(title);
-        updateStoryList();
-    }
-});
-
-// دالة تحديث قائمة الشخصيات
-function updateCharacterList() {
-    const list = document.getElementById('character-list');
-    list.innerHTML = characters.map(char => `<div class="news-item"><p>${char}</p></div>`).join('');
-}
-
-// دالة تحديث قائمة القصص
-function updateStoryList() {
-    const list = document.getElementById('story-list');
-    list.innerHTML = stories.map(story => `<div class="news-item"><p>${story}</p></div>`).join('');
-}
-
-// نموذج الاتصال (بسيط، يمكن توسيعه)
-document.getElementById('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('تم إرسال رسالتك! شكرًا لك.');
-});
-
-// زر الانضمام
-document.getElementById('join-btn').addEventListener('click', () => {
-    alert('مرحبًا! انضم إلى مجتمعنا.');
+  });
 });
