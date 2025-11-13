@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinity Roleplay </title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- أضف أيقونة إذا أردت -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Roleplay - Rules</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Infinity Roleplay</h1>
-            <p>عالم لا نهائي من الإبداع واللعب الأدوار</p>
+
+<header class="navbar">
+  <div class="logo">
+    <span class="roleplay">ROLE-PLAY</span>
+    <span class="corex">infinity<span class="blue">roleplay</span></span>
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#" class="active">Wip</a>
+    <a href="#">Rules</a>
+    <a href="#" target="_blank" rel="noopener">Discord <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M12 5v14M5 12h14" /></svg></a>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>📜 قواعد السرفر</h1>
+  <p class="welcome-text">Welcome to the official server rules. Please abide by them.</p>
+  
+  <div class="tabs">
+    <button class="tab active" data-tab="server">SERVER RULES</button>
+    <button class="tab" data-tab="rp">RP CONCEPTS</button>
+    <button class="tab" data-tab="illegal">ILGALE RULES</button>
+    <button class="tab" data-tab="heists">HEISTS RULES</button>
+  </div>
+  
+  <section id="server" class="tab-content active">
+    <h2>قوانين السيرفر</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header">القوانين العامة <span class="eye">👁️</span></button>
+        <div class="accordion-body">
+          <p>هذه هي القوانين العامة للسيرفر والتي يجب اتباعها من قبل جميع اللاعبين.</p>
         </div>
-        <nav>
-            <a href="#home">الرئيسية</a>
-            <a href="#news">الأخبار</a>
-            <a href="#characters">الشخصيات</a>
-            <a href="#stories">القصص</a>
-            <a href="#contact">اتصل بنا</a>
-        </nav>
-    </header>
-
-    <section id="home">
-        <h2>مرحبًا في Infinity Roleplay</h2>
-        <p>انضم إلى مجتمعنا للعب الأدوار والقصص الخيالية. استكشف عوالم جديدة وأنشئ شخصياتك الخاصة!</p>
-        <button id="join-btn">انضم الآن</button>
-    </section>
-
-    <section id="news">
-        <h2>آخر الأخبار</h2>
-        <div class="news-item">
-            <h3>تحديث جديد: شخصيات جديدة متاحة</h3>
-            <p>تم إضافة شخصيات جديدة للعب الأدوار. جربها الآن!</p>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">قوانين اللعبة <span class="eye">👁️</span></button>
+        <div class="accordion-body">
+          <p>قوانين خاصة بطريقة اللعب داخل السيرفر للحفاظ على التفاعل وجو اللعب.</p>
         </div>
-        <div class="news-item">
-            <h3>قصة شهرية: مغامرة في المدينة</h3>
-            <p>اقرأ القصة الجديدة وشارك في التفاعلات.</p>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">المصطلحات <span class="eye">👁️</span></button>
+        <div class="accordion-body">
+          <p>شرح المصطلحات المهمة المستخدمة في السيرفر ولعب الأدوار.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="characters">
-        <h2>الشخصيات</h2>
-        <div id="character-list">
-            <!-- الشخصيات ستُضاف هنا ديناميكيًا -->
-        </div>
-        <button id="add-character">أضف شخصية</button>
-    </section>
+  <section id="rp" class="tab-content">
+    <h2>RP CONCEPTS</h2>
+    <p>محتوى قوانين مفاهيم لعب الأدوار.</p>
+  </section>
+  <section id="illegal" class="tab-content">
+    <h2>ILGALE RULES</h2>
+    <p>قوانين النشاطات غير القانونية داخل اللعبة.</p>
+  </section>
+  <section id="heists" class="tab-content">
+    <h2>HEISTS RULES</h2>
+    <p>قوانين الطرائد والعمليات في اللعبة.</p>
+  </section>
+</main>
 
-    <section id="stories">
-        <h2>القصص</h2>
-        <div id="story-list">
-            <!-- القصص ستُضاف هنا ديناميكيًا -->
-        </div>
-        <button id="add-story">أضف قصة</button>
-    </section>
-
-    <section id="contact">
-        <h2>اتصل بنا</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="اسمك" required>
-            <input type="email" placeholder="بريدك الإلكتروني" required>
-            <textarea placeholder="رسالتك" required></textarea>
-            <button type="submit">إرسال</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Infinity Roleplay. .</p>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
