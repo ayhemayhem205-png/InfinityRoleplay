@@ -1,15 +1,348 @@
-// ...existing code...
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity RP Official Website</title>
+<style>
+  /* Reset */
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background: url('https://i.ibb.co/9hSf3PD/infinity-rp-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 20, 0.75);
+    z-index: 0;
+  }
+
+  /* Starry background effect */
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 0.2; }
+  }
+  .star {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: twinkle 3s infinite ease-in-out;
+    pointer-events: none;
+  }
+  /* Multiple stars with different positions and delays */
+  .star1 { width: 2px; height: 2px; top: 10%; left: 25%; animation-delay: 0s; }
+  .star2 { width: 1.5px; height: 1.5px; top: 20%; left: 80%; animation-delay: 1.2s;}
+  .star3 { width: 3px; height: 3px; top: 35%; left: 55%; animation-delay: 2.4s;}
+  .star4 { width: 2.2px; height: 2.2px; top: 70%; left: 35%; animation-delay: 3.6s;}
+  .star5 { width: 1.8px; height: 1.8px; top: 85%; left: 75%; animation-delay: 4.8s;}
+
+  nav {
+    position: relative; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 30px;
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  nav .logo {
+    font-weight: 900;
+    font-size: 28px;
+    color: #3bc3ff;
+    user-select: none;
+    letter-spacing: 2px;
+    font-family: 'Segoe UI Black', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0 0 12px #3bc3ffcc;
+    transition: color 0.4s ease;
+  }
+  nav .logo:hover {
+    color: #66d0ff;
+    text-shadow: 0 0 18px #66d0ffcc, 0 0 25px #66d0ffbb;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex; gap: 25px;
+  }
+  nav ul li a {
+    color: #a1b8ce;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+  }
+  nav ul li a:hover {
+    color: #66d0ff;
+    background: rgba(102, 208, 255, 0.2);
+    box-shadow: 0 0 10px #66d0ff80;
+  }
+  nav ul li a.active {
+    color: #3bc3ff;
+    background: rgba(59,195,255,0.4);
+    box-shadow: 0 0 15px #3bc3ffbb;
+  }
+
+  .container.home {
+    position: relative; z-index: 10;
+    display: flex; max-width: 1200px; margin: 50px auto;
+    padding: 0 20px; align-items: center; gap: 50px;
+  }
+  .container.home .text {
+    flex: 1;
+  }
+  .container.home .text h1 {
+    font-weight: 900; font-size: 3rem; line-height: 1.2; margin-bottom: 20px;
+    text-shadow: 0 0 20px #3bc3ffcc;
+    background: linear-gradient(45deg, #39c0ff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 6s linear infinite;
+  }
+  @keyframes shine {
+    0% { background-position: -200px; }
+    100% { background-position: 200px; }
+  }
+  .container.home .text h1 .highlight {
+    color: #39c0ff;
+  }
+  .container.home .text p.description {
+    font-weight: 400; font-size: 1rem; color: #bcd7efdd;
+    text-shadow: 0 0 10px #000;
+    max-width: 400px;
+  }
+  .container.home .image {
+    flex: 1;
+    max-width: 500px;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+  }
+  .container.home .image img {
+    width: 100%; height: auto; border-radius: 10px;
+    filter: drop-shadow(0 0 15px #3bc3ff);
+    transition: transform 0.5s ease;
+  }
+  .container.home .image:hover {
+    transform: scale(1.05);
+  }
+  .container.home .image:hover img {
+    transform: rotate(3deg);
+  }
+
+  .rules-container {
+    position: relative; z-index: 10;
+    max-width: 1200px;
+    margin: 40px auto 60px;
+    padding: 20px 30px;
+    background: rgba(11, 26, 49, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 0 40px #39c0ff80;
+    transition: box-shadow 0.3s ease;
+  }
+  .rules-container:hover {
+    box-shadow: 0 0 60px #00d2ffcc;
+  }
+  .rules-header {
+    font-size: 1.8rem; font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+    color: #39c0ff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px #39c0ff88;
+  }
+  .rules-header span.emoji {
+    font-size: 1.8rem;
+  }
+  .rules-description {
+    color: #a1b8ce;
+    margin-bottom: 25px;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #1a3765;
+    margin-bottom: 25px;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  .tab {
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    user-select: none;
+    background: #163561cc;
+    color: #a1b8ce;
+    border: 2px solid transparent;
+    box-shadow: 0 0 6px transparent;
+  }
+  .tab.active {
+    color: #00d2ff;
+    background: transparent;
+    border: 2px solid #00d2ff;
+    box-shadow: 0 0 15px #00d2ffcc;
+  }
+  .tab:hover:not(.active) {
+    background: #1f427ecc;
+    box-shadow: 0 0 10px #00d2ff99;
+    color: #00d2ffcc;
+  }
+
+  .rules-list {
+    border-top: 1px solid #1a3765;
+  }
+  .rules-section {
+    margin-bottom: 20px;
+  }
+  .rules-section h3 {
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #7ee3fc;
+    text-shadow: 0 0 6px #00a9ea;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  .rules-section h3:hover {
+    color: #00d2ff;
+  }
+  .rule-item {
+    background: #163561cc;
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.35s ease, transform 0.3s ease;
+  }
+  .rule-item:hover {
+    background: #00539ccc;
+    transform: translateX(8px);
+    box-shadow: 0 0 15px #00d2ffaa;
+  }
+  .rule-item span.title {
+    color: #cbedfd;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .rule-item span.eye {
+    font-size: 1.3rem;
+    color: #7fb5f8;
+    user-select: none;
+  }
+
+  footer {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 15px 0;
+    color: #4780bb;
+    font-size: 0.95rem;
+    border-top: 1px solid #1e446c;
+    background: rgba(10, 34, 57, 0.7);
+  }
+
+  /* Popup for rule image */
+  #rule-popup {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+  #rule-popup.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  #rule-popup .popup-content img {
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 20px;
+    box-shadow: 0 0 35px #00d2ffcc;
+    cursor: pointer;
+    transform: scale(0.7);
+    animation: zoomIn 0.5s forwards;
+  }
+  @keyframes zoomIn {
+    to { transform: scale(1); }
+  }
+
+</style>
+</head>
+<body class="home">
+
+<!-- نجوم خلفية -->
+<div class="star star1"></div>
+<div class="star star2"></div>
+<div class="star star3"></div>
+<div class="star star4"></div>
+<div class="star star5"></div>
+
+<nav>
+  <div class="logo">INFINITY RP</div>
+  <ul>
+    <li><a href="#" id="nav-home" class="active">Home</a></li>
+    <li><a href="#" id="nav-rules">Rules</a></li>
+    <li><a href="https://discord.gg/BHg5JdM9" target="_blank" rel="noopener noreferrer">Discord</a></li>
+  </ul>
+</nav>
+
+<div class="container home" id="home-section">
+  <div class="text">
+    <h1>WELCOME TO <span class="highlight">INFINITY RP</span><br />Official Website</h1>
+    <p class="description">Next-gen RP experience. Join us and start your story.</p>
+  </div>
+  <div class="image">
+    <img src="https://i.ibb.co/1bYcQC3/corex-character.png" alt="INFINITY RP Character" />
+  </div>
+</div>
+
+<div class="rules-container" id="rules-section" style="display:none;">
+
+  <div class="rules-header">
+    <span class="emoji">📜</span>
+    <span>Server Rules</span>
+  </div>
+  <p class="rules-description">
+    Welcome to the official server rules. Please abide by them.
+  </p>
+  <hr />
+
+  <div class="tabs">
+    <div class="tab active" data-tab="server-rules">SERVER RULES</div>
+    <div class="tab" data-tab="rp-concepts">RP CONCEPTS</div>
+    <div class="tab" data-tab="illegal-rules">ILGALE RULES</div>
+    <div class="tab" data-tab="heists-rules">HEISTS RULES</div>
+  </div>
+
+  <div class="rules-list" id="rules-list">
+    <div class="rules-content" data-content="server-rules">
       <div class="rules-section">
         <h3>قوانين السيرفر</h3>
-        <div class="rule-item" data-image="https://cdn.discordapp.com/attachments/1409202512623304754/1438465304286990436/Capture_decran_2025-11-12_224443.png?ex=6916fab5&is=6915a935&hm=616360c9e97921ab837708c8ac143253579381ced6f96a5794ce1f889221a2c5&">
+        <div class="rule-item" data-image="https://cdn.discordapp.com/attachments/1409202512623304754/1438465304286990436/Capture_decran_2025-11-12_224443.png?ex=6916fab5&is=6915a935&hm=616360c9e97921ab837708c8ac143253579381ced6f96a5794ce1f889221a2c5&"
           <span class="title">القوانين العامة</span> 
           <span class="eye">👁️</span>
         </div>
-        <div class="rule-item" data-image=""
+        <div class="rule-item">
           <span class="title">قوانين اللعبة</span> 
           <span class="eye">👁️</span>
         </div>
-        <div class="rule-item" data-image=""
+        <div class="rule-item">
           <span class="title">المصطلحات</span> 
           <span class="eye">👁️</span>
         </div>
@@ -18,20 +351,93 @@
           <span class="eye">👁️</span>
         </div>
       </div>
-// ...existing code...
-  <script>
-  // ...existing code...
-  // فتح النافذة المنبثقة عند الضغط على عنصر القاعدة (يدعم data-image)
+    </div>
+
+    <div class="rules-content" data-content="rp-concepts" style="display:none;">
+      <div class="rules-section">
+        <h3>RP Concepts</h3>
+        <div class="rule-item"><span class="title">Role-playing basics</span> <span class="eye">👁️</span></div>
+        <div class="rule-item"><span class="title">Character development</span> <span class="eye">👁️</span></div>
+      </div>
+    </div>
+
+    <div class="rules-content" data-content="illegal-rules" style="display:none;">
+      <div class="rules-section">
+        <h3>Illegal Rules</h3>
+        <div class="rule-item"><span class="title">No hacking</span> <span class="eye">👁️</span></div>
+        <div class="rule-item"><span class="title">No exploits</span> <span class="eye">👁️</span></div>
+      </div>
+    </div>
+
+    <div class="rules-content" data-content="heists-rules" style="display:none;">
+      <div class="rules-section">
+        <h3>Heists Rules</h3>
+        <div class="rule-item"><span class="title">No offline raids</span> <span class="eye">👁️</span></div>
+        <div class="rule-item"><span class="title">No killing civilians</span> <span class="eye">👁️</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 INFINITY RP
+</footer>
+
+<!-- نافذة عرض شعار القوانين العامة -->
+<div id="rule-popup">
+  <div class="popup-content">
+    <img src="https://i.ibb.co/0Gw1hFy/infinity-rp-logo.png" alt="Infinity RP Logo" />
+  </div>
+</div>
+
+<script>
+  // التنقل بين صفحات home و rules
+  const navHome = document.getElementById('nav-home');
+  const navRules = document.getElementById('nav-rules');
+  const homeSection = document.getElementById('home-section');
+  const rulesSection = document.getElementById('rules-section');
+  const tabs = document.querySelectorAll('.tab');
+  const rulesContents = document.querySelectorAll('.rules-content');
+  const popup = document.getElementById('rule-popup');
+  const popupImg = popup.querySelector('img');
+
+  function activateTab(tabName) {
+    tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
+    rulesContents.forEach(content => {
+      content.style.display = content.dataset.content === tabName ? 'block' : 'none';
+    });
+  }
+
+  navHome.addEventListener('click', e => {
+    e.preventDefault();
+    document.body.className = 'home';
+    homeSection.style.display = 'flex';
+    rulesSection.style.display = 'none';
+    navHome.classList.add('active');
+    navRules.classList.remove('active');
+  });
+
+  navRules.addEventListener('click', e => {
+    e.preventDefault();
+    document.body.className = 'rules';
+    homeSection.style.display = 'none';
+    rulesSection.style.display = 'block';
+    navHome.classList.remove('active');
+    navRules.classList.add('active');
+    activateTab('server-rules');
+  });
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      activateTab(tab.dataset.tab);
+    });
+  });
+
+  // فتح النافذة المنبثقة عند الضغط على "القوانين العامة"
   document.querySelectorAll('.rule-item').forEach(item => {
-    // افتح النافذة إذا العنصر يملك data-image أو عنوانه "القوانين العامة"
-    const imgUrl = item.dataset.image;
-    const title = item.querySelector('.title')?.textContent.trim();
-    if (imgUrl || title === 'القوانين العامة') {
-      item.style.cursor = 'pointer';
+    if(item.querySelector('.title').textContent.trim() === 'القوانين العامة'){
       item.addEventListener('click', e => {
         e.preventDefault();
-        // استخدم مصدر الصورة من data-image إذا وُجد، وإلا حافظ على المصدر الافتراضي
-        if (imgUrl) popupImg.src = imgUrl;
         popup.classList.add('active');
       });
     }
@@ -39,9 +445,11 @@
 
   // إغلاق النافذة عند الضغط خارج الصورة أو على الصورة نفسها
   popup.addEventListener('click', e => {
-    if (e.target === popup || e.target === popupImg) {
+    if(e.target === popup || e.target === popupImg){
       popup.classList.remove('active');
     }
   });
-  // ...existing code...
-  </script>
+</script>
+
+</body>
+</html>
