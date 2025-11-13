@@ -3,44 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinity Roleplay</title>
+    <title>Infinity Roleplay - مثل CoreX City</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- أضف أيقونة إذا أردت -->
 </head>
 <body>
     <header>
-        <h1>Infinity Roleplay</h1>
+        <div class="logo">
+            <h1>Infinity Roleplay</h1>
+            <p>عالم لا نهائي من الإبداع واللعب الأدوار</p>
+        </div>
         <nav>
             <a href="#home">الرئيسية</a>
+            <a href="#news">الأخبار</a>
             <a href="#characters">الشخصيات</a>
             <a href="#stories">القصص</a>
+            <a href="#contact">اتصل بنا</a>
         </nav>
     </header>
-    
+
     <section id="home">
-        <h2>مرحبًا بك في Infinity Roleplay</h2>
-        <p>موقع للعب الأدوار والقصص الخيالية. شارك في عالم لا نهائي من الإبداع!</p>
+        <h2>مرحبًا في Infinity Roleplay</h2>
+        <p>انضم إلى مجتمعنا للعب الأدوار والقصص الخيالية. استكشف عوالم جديدة وأنشئ شخصياتك الخاصة!</p>
+        <button id="join-btn">انضم الآن</button>
     </section>
-    
+
+    <section id="news">
+        <h2>آخر الأخبار</h2>
+        <div class="news-item">
+            <h3>تحديث جديد: شخصيات جديدة متاحة</h3>
+            <p>تم إضافة شخصيات جديدة للعب الأدوار. جربها الآن!</p>
+        </div>
+        <div class="news-item">
+            <h3>قصة شهرية: مغامرة في المدينة</h3>
+            <p>اقرأ القصة الجديدة وشارك في التفاعلات.</p>
+        </div>
+    </section>
+
     <section id="characters">
         <h2>الشخصيات</h2>
         <div id="character-list">
-            <!-- هنا يمكن إضافة شخصيات ديناميكيًا عبر JS -->
+            <!-- الشخصيات ستُضاف هنا ديناميكيًا -->
         </div>
-        <button id="add-character">أضف شخصية جديدة</button>
+        <button id="add-character">أضف شخصية</button>
     </section>
-    
+
     <section id="stories">
         <h2>القصص</h2>
         <div id="story-list">
-            <!-- قصص هنا -->
+            <!-- القصص ستُضاف هنا ديناميكيًا -->
         </div>
-        <button id="add-story">أضف قصة جديدة</button>
+        <button id="add-story">أضف قصة</button>
     </section>
-    
+
+    <section id="contact">
+        <h2>اتصل بنا</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="اسمك" required>
+            <input type="email" placeholder="بريدك الإلكتروني" required>
+            <textarea placeholder="رسالتك" required></textarea>
+            <button type="submit">إرسال</button>
+        </form>
+    </section>
+
     <footer>
-        <p>&copy; 2023 Infinity Roleplay. جميع الحقوق محفوظة.</p>
+        <p>&copy; 2023 Infinity Roleplay. جميع الحقوق محفوظة. مستوحى من CoreX City.</p>
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
