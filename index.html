@@ -346,6 +346,10 @@
           <span class="title">المصطلحات</span> 
           <span class="eye">👁️</span>
         </div>
+        <div class="rule-item">
+          <span class="title">قوانين الديسكورد</span> 
+          <span class="eye">👁️</span>
+        </div>
       </div>
     </div>
 
@@ -425,4 +429,29 @@
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      activate
+      activateTab(tab.dataset.tab);
+    });
+  });
+
+  // فتح النافذة المنبثقة عند الضغط على "القوانين العامة"
+  document.querySelectorAll('.rule-item').forEach(item => {
+    if(item.querySelector('.title').textContent.trim() === 'القوانين العامة'){
+      item.addEventListener('click', e => {
+        e.preventDefault();
+        popup.classList.add('active');
+      });
+    }
+  });
+
+  // إغلاق النافذة عند الضغط خارج الصورة أو على الصورة نفسها
+  popup.addEventListener('click', e => {
+    if(e.target === popup || e.target === popupImg){
+      popup.classList.remove('active');
+    }
+  });
+</script>
+
+</body>
+</html>
+
+
