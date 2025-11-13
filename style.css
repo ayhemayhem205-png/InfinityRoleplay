@@ -1,49 +1,89 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #1a1a1a; /* خلفية داكنة مثل corex.city */
+    color: #ffffff;
     direction: rtl;
+    line-height: 1.6;
 }
 
 header {
-    background-color: #007bff;
-    color: white;
+    background-color: #333;
     padding: 1rem;
     text-align: center;
+    border-bottom: 2px solid #007bff;
+}
+
+.logo h1 {
+    margin: 0;
+    color: #007bff;
+}
+
+nav {
+    margin-top: 1rem;
 }
 
 nav a {
     margin: 0 1rem;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #007bff;
 }
 
 section {
     padding: 2rem;
-    margin: 1rem;
-    background: white;
+    margin: 1rem auto;
+    max-width: 1200px;
+    background-color: #2a2a2a;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+h2 {
+    color: #007bff;
+    border-bottom: 1px solid #007bff;
+    padding-bottom: 0.5rem;
 }
 
 button {
-    background-color: #28a745;
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #0056b3;
+}
+
+.news-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    color: white;
 }
 
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #007bff;
-    color: white;
+    background-color: #333;
+    color: #cccccc;
 }
